@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { useQuery, gql } from "@apollo/client";
+import Button from "./Button"; 
 
 const GET_CHARACTERS = gql`
   query {
@@ -46,6 +47,7 @@ export default function LaunchList() {
               {char.status} - {char.species}
             </Text>{" "}
           </View>
+          <Button id={char.id}/>
         </View>
       ))}
     </ScrollView>
@@ -55,15 +57,18 @@ export default function LaunchList() {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    flexDirection: "row",
+    flexWrap: "wrap", 
+    justifyContent: "space-between",
   },
   card: {
-    flexDirection: "column",
+    flexDirection: "row",
     backgroundColor: "#1e1e1e",
     padding: 16,
     borderRadius: 10,
     marginBottom: 12,
     alignItems: "stretch",
-    width: "25%",
+    width: "27%",
     display: "flex",
   },
   image: {
@@ -74,6 +79,9 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flexShrink: 1,
+    flexDirection: "column",
+    padding: 16,
+    alignItems: "stretch",
   },
   name: {
     color: "#3ec7e6",

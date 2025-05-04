@@ -1,15 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, SafeAreaView, StyleSheet, ActivityIndicator } from 'react-native';
-import React from 'react';
-import { useFonts } from 'expo-font';
-import { ApolloProvider } from '@apollo/client';
-import client from './src/apollo/client';
-import LaunchList from './src/components/LaunchList';
-import Navbar from './src/components/navbar';
+import { StatusBar } from "expo-status-bar";
+import {
+  Text,
+  View,
+  SafeAreaView,
+  StyleSheet,
+  ActivityIndicator,
+} from "react-native";
+import React from "react";
+import { useFonts } from "expo-font";
+import { ApolloProvider } from "@apollo/client";
+import client from "./src/apollo/client";
+import LaunchList from "./src/components/LaunchList";
+import Character from "./src/components/Character";
+import Navbar from "./src/components/navbar";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'Schwifty': require('./assets/fonts/get_schwifty.ttf'),
+    Schwifty: require("./assets/fonts/get_schwifty.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -31,10 +38,10 @@ export default function App() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#3ec7e6',
+    backgroundColor: "#3ec7e6",
   },
   content: {
     flex: 1,
-    backgroundColor: '121212',
+    backgroundColor: "121212",
   },
 });
