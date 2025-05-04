@@ -9,10 +9,17 @@ import {
 import React from "react";
 import { useFonts } from "expo-font";
 import { ApolloProvider } from "@apollo/client";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { RootStackParamList } from "./src/types/navigation";
+
 import client from "./src/apollo/client";
 import LaunchList from "./src/components/LaunchList";
 import Character from "./src/components/Character";
 import Navbar from "./src/components/navbar";
+
+// allowing for multiple pages
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,12 +32,12 @@ export default function App() {
 
   return (
     <ApolloProvider client={client}>
-      <SafeAreaView style={styles.safeArea}>
-        <Navbar />
-        <View style={styles.content}>
-          <LaunchList />
-        </View>
-      </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="LaunchList">
+            <Stack.Screen name="LaunchList" component={LaunchList} options={{ headerShown: false }}/>
+            <Stack.Screen name="Character" component={Character} options={{ headerShown: false }}/>
+        </Stack.Navigator>
+      </NavigationContainer>
     </ApolloProvider>
   );
 }
