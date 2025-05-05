@@ -5,6 +5,11 @@ Right now I do not have access to the SpaceX launch api for whatever reason. As 
 
 If I had access to the launch api, it can be seen how this would be tweaked to fit those requirements. 
 
+# Changes 
+I would change the idea of characters in the show to rockets launched recently. 
+I would change the second screen, viewing a specific character, to viewing a specific rocket and information about that.
+Almost all logic would stay the same
+
 Made using React-native, Expo and Typescript. 
 
 # To run 
