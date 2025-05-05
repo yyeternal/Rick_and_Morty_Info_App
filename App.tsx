@@ -17,6 +17,7 @@ import client from "./src/apollo/client";
 import LaunchList from "./src/components/Home";
 import Character from "./src/components/Character";
 import Navbar from "./src/components/navbar";
+import {FavoritesProvider}  from "./src/context/Favorites";
 
 // allowing for multiple pages
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -31,22 +32,24 @@ export default function App() {
   }
 
   return (
-    <ApolloProvider client={client}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="LaunchList">
-          <Stack.Screen
-            name="LaunchList"
-            component={LaunchList}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Character"
-            component={Character}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </ApolloProvider>
+    <FavoritesProvider>
+      <ApolloProvider client={client}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="LaunchList">
+            <Stack.Screen
+              name="LaunchList"
+              component={LaunchList}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Character"
+              component={Character}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ApolloProvider>
+    </FavoritesProvider>
   );
 }
 

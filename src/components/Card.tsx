@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import FavoriteButton from './FavoriteButton';
 
 interface CardProps {
   id: number;
@@ -19,6 +20,7 @@ const Card = (props: CardProps) => {
         <Text style={styles.info}>
           {props.status} - {props.species}
         </Text>{" "}
+        <FavoriteButton characterId={props.id} />
       </View>
       <TouchableOpacity
         style={styles.button}
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 10,
     marginBottom: 12,
+    marginTop: 12,
     alignItems: "stretch",
     width: "46%",
     display: "flex",

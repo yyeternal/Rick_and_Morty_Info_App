@@ -12,8 +12,9 @@ import { useQuery, gql } from "@apollo/client";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../types/navigation";
-import Card  from "./Card"
+import Card from "./Card";
 import Navbar from "./navbar";
+import FavoriteButton from "./FavoriteButton";
 
 // query to get attributes about each character
 const GET_CHARACTERS = gql`
@@ -29,7 +30,6 @@ const GET_CHARACTERS = gql`
     }
   }
 `;
-
 
 export default function LaunchList() {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
@@ -51,7 +51,7 @@ export default function LaunchList() {
   const navigation = useNavigation<NavigationProp>();
 
   const handleViewCharacter = (id: number) => {
-    navigation.navigate("Character", { id }); 
+    navigation.navigate("Character", { id });
   };
 
   // return a card for each character with their image, name, and info
@@ -61,7 +61,15 @@ export default function LaunchList() {
       <View style={styles.screen}>
         <ScrollView contentContainerStyle={styles.container}>
           {data.characters.results.map((char: any) => (
-            <Card id={char.id} image={char.image} name={char.name} status={char.status} species={char.species} onClick={handleViewCharacter}/>
+              <Card
+                id={char.id}
+                image={char.image}
+                name={char.name}
+                status={char.status}
+                species={char.species}
+                onClick={handleViewCharacter}
+              />
+              
           ))}
         </ScrollView>
       </View>
