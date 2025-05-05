@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 12,
     alignItems: "stretch",
-    width: "27%",
+    width: "46%",
     display: "flex",
   },
   image: {

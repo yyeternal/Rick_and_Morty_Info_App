@@ -14,7 +14,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./src/types/navigation";
 
 import client from "./src/apollo/client";
-import LaunchList from "./src/components/LaunchList";
+import LaunchList from "./src/components/Home";
 import Character from "./src/components/Character";
 import Navbar from "./src/components/navbar";
 

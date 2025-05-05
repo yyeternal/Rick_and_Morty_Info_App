@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Image, ActivityIndicator, ScrollView } from "react-native";
-import { RouteProp, useRoute } from "@react-navigation/native";
+import { View, Text, Image, ActivityIndicator, ScrollView, TouchableOpacity, StyleSheet } from "react-native";
+import { NavigationProp, RouteProp, useRoute } from "@react-navigation/native";
 import { RootStackParamList } from "../types/navigation";
+import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 const Character = () => {
   const route = useRoute<RouteProp<RootStackParamList, "Character">>();
@@ -69,9 +72,19 @@ const Character = () => {
     );
   }
 
+  type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Character">;
+  const navigation = useNavigation<NavigationProp>();
+
+
   return (
     <ScrollView>
       <View style={{ padding: 20 }}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{ marginBottom: 10 }}
+        >
+          <Ionicons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
         <Text style={{ fontSize: 28 }}>{character.name}</Text>
         <Image
           source={{ uri: character.image }}
