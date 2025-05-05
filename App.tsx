@@ -34,8 +34,16 @@ export default function App() {
     <ApolloProvider client={client}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="LaunchList">
-            <Stack.Screen name="LaunchList" component={LaunchList} options={{ headerShown: false }}/>
-            <Stack.Screen name="Character" component={Character} options={{ headerShown: false }}/>
+          <Stack.Screen
+            name="LaunchList"
+            component={LaunchList}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Character"
+            component={Character}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>
