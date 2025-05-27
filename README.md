@@ -1,5 +1,5 @@
-# SpaceX-Launch-Data
-Web App that displays different information for each rocket launch by SpaceX
+# Rick and Morty Info Site 
+Web App that displays different information for each character in Rick and Morty 
 
 I spent a total of 6 hours on this project 
 
